@@ -1,0 +1,160 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to Apps.Run4Offers.com| Facebook ID Card | Designed by Manish Bisht</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/design.css" rel="stylesheet">
+<link rel="icon" 
+      type="image/png"
+      href="images/logo.png"
+      sizes="32x32">
+</head>
+<script>
+function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    if (response.status === 'connected') {
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
+    } else {
+      document.getElementById('status').innerHTML = 'Please log ' + 'into Facebook.';
+    }
+  }
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '395790793915453',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.3' // use version 2.2
+  });
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  function testAPI() {
+console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + ' !!';
+	  document.getElementById('sample').style.display="none";
+	  document.getElementById('real').style.display="block";
+	  document.getElementById('Login').style.display="none";
+    });
+    FB.api('/me/picture?type=large&redirect=false','get',function(response){
+		/*document.getElementById('pic').src=response.data.url;*/
+		document.getElementById('pic').setAttribute('src',response.data.url);
+	  });
+	  
+	FB.api('/me','get',function(response){
+   document.getElementById('content').innerHTML ='ID : ' + response.id + '<br>'+
+   'Full Name : ' + response.name+ '<br>'
+    +'Gender : ' + response.gender+ '<br>'
+    +'Birthday : ' + response.birthday+ '<br>'
+    +'Language : ' + response.locale+ '<br>'
+    +'Last Seen : ' + response.updated_time+ '<br>';
+   document.getElementById('Signature').innerHTML =response.first_name;
+	   
+   });
+   
+}
+
+</script>
+<body>
+<div class="container" align="center" style="padding:0">
+   <img src="images/header.png" class="img-responsive" alt="Manish Bisht">
+</div>
+
+<div class="container" style="padding:0">
+   <div class="col-md-8" style="padding:0;margin-bottom:20px" align="center" id="sample">
+       <img src="images/sampleid.png" class="img-responsive">
+   </div>
+   <div class="col-md-8" style="padding:0;margin-bottom:20px;display:none" id="real">
+      <table align="center" width="750" height="500" background="images/id-background.jpg">
+      <tr>
+         <td align="center" colspan="2">
+         <font face="Facebook" size="7">
+         Facebook ID Card
+         </font>
+         </td>
+      </tr>
+      <tr>
+         <td id="image" align="center" style="padding-left:20px;">
+         <img id="pic" src="images/na.png">
+         </td>
+         <td align="left" style="padding-left:10px;">
+         <font face="Data" size="6">
+         <div id="content">
+            ID : *****************<br>
+            Full Name : Your Name<br>
+            Gender : M/F<br>
+            Birthday : MM/DD/YYYY<br>
+            Language : Your Language<br>
+            Last Seen : Time
+         </div>
+         </font>
+         </td>
+      </tr>
+      <tr>
+         <td align="right">
+            <br>
+            <font face="Title" size="4">
+            Signature : 
+            </font>
+         </td> 
+         <td align="left">
+            <font face="Signature" size="7">
+            <div id="Signature">
+            Sign
+            </div>
+            </font>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="2" align="center">
+            <font face="Title" size="3">
+            Created via : http://apps.run4offers.com/ 
+            </font> 
+         </td>
+      </tr>
+      </table>
+   </div>
+   <div class="col-md-4" align="center">
+      <div id="Login">
+      <fb:login-button scope="public_profile,user_birthday,user_photos" onlogin="checkLoginState();">
+      </fb:login-button>
+      </div>
+      <div id="status">
+      </div>
+   </div>
+</div>
+<div id="res">
+</div>
+<img id="result">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.plugin.html2canvas.js"></script>
+<script src="js/html2canvas.js"></script>
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

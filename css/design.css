@@ -1,0 +1,66 @@
+@font-face {
+    font-family: logo;
+    src:url(../fonts/RemachineScript.ttf);
+}
+@font-face {
+    font-family: coming;
+    src:url(../fonts/Deadly%20Inked.ttf);
+}
+@font-face {
+    font-family: Signature;
+    src:url(../fonts/Autograf_PersonalUseOnly.ttf);
+}
+@font-face {
+    font-family: title;
+    src:url(../fonts/Luna.ttf);
+}
+@font-face {
+    font-family: Facebook;
+    src:url(../fonts/ScorchedEarthDEMO-KCFonts.otf);
+}
+@font-face {
+    font-family: Data;
+    src:url(../fonts/Ateeca.ttf);
+}
+.box{
+	padding-bottom:20px;
+	}
+.button1{
+	border:5px solid #ffffff;
+	color:#FFF;
+	}
+.button1:hover{
+	 border:5px solid #da4327;
+	 background:#FFF;
+	 color:#da4327;
+	}
+.button2{
+	border:5px solid #ffffff;
+	color:#FFF;
+	}
+.button2:hover{
+	 border:5px solid #3a50a1;
+	 background:#FFF;
+	 color:#3a50a1;
+	}
+.button3{
+	border:5px solid #ffffff;
+	color:#FFF;
+	}
+.button3:hover{
+	 border:5px solid #009c54;
+	 background:#FFF;
+	 color:#009c54; 
+	}
+.buttonclick:hover{
+	text-decoration:none;
+	}
+@media (min-width: 768px) {
+  
+}
+
+@media (min-width: 992px) {
+  
+}
+
+
